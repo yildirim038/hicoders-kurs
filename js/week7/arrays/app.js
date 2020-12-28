@@ -89,8 +89,8 @@ console.log("Cografya Dersinde Ortalamanin Ustunde Olan Ögrenciler:", cografyaD
  */
 let enKotuDersOrtalamasi = 100;
 let enIyiDersOrtalamasi = 0;
-let enKotuDers = ""
-let enIyiDers = ""
+let enKotuDers = "";
+let enIyiDers = "";
 for (let sayac = 0; sayac < dersOrtalamasi.length; sayac++) {
     if (enIyiDersOrtalamasi < dersOrtalamasi[sayac]) {
         enIyiDersOrtalamasi = dersOrtalamasi[sayac];
