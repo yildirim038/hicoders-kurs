@@ -1,0 +1,107 @@
+header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 1vh;
+    min-width: 500px;
+}
+
+header img{
+    width: 15vw;
+}
+
+nav li{
+    display: inline;
+    text-decoration: none;
+}
+
+header nav li img{
+    width: 4vw;
+    opacity: 0.8;
+}
+
+header nav li img:hover{
+    opacity: 1.0;
+}
+
+#hicoders-nav-logo{
+    width: 3vw;
+    border-radius: 50%;
+    border: black solid 3px;
+    padding: 3px;
+}
+
+input{
+    border-radius: 5px;
+    height: 3vh;
+}
+
+input::placeholder{
+    text-align: center;
+    font-size: 1rem;
+}
+
+#section-container{
+    background-color: rgb(250, 250, 250);
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 1fr 1fr;
+    min-width: 550px;
+    border-top: solid rgb(206, 205, 205) 2px;
+}
+
+#hicoders-img {   
+    grid-row: 1/2;
+    grid-column: 2/3;  
+}
+
+#ana-section-bilgiler{
+    grid-column:3/7;
+}
+
+.section-bilgiler{
+    display: flex;
+    align-items: center;
+}
+
+#ana-section-bilgiler div{
+    margin: 0vw 1vw;
+}
+
+.section-bilgiler figure img{
+    width: 4vw;
+}
+
+#hicoders-img img{
+    width: 20vw;
+    border-radius: 50%;
+}
+
+footer{
+    grid-row: 2/3;
+    grid-column: 1/7;
+    align-items: center;
+    border-top: solid rgb(206, 205, 205) 2px;
+    text-align: center;
+    margin: 0px 12vw;
+}
+
+footer img{
+    height:5vh;
+}
+
+footer nav{
+    margin-top: -18px;
+}
+
+#footer-nav-beitrage{
+    border-top: solid black 2px;
+}
+
+.footer-nav-opacity{
+    opacity: 0.8;
+}
+
+.footer-nav-opacity:hover{
+    opacity: 1.0;
+}

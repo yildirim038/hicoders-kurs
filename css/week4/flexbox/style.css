@@ -1,0 +1,205 @@
+*{
+    box-sizing: border-box;
+}
+
+#container{
+    background-image:url(./img/arkaplan.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+}
+
+header{
+    background-image: url(./img/arkaplan1.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height:180px;
+}
+
+#header-ust-kisim{
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    margin: 15px; 
+    font-weight: bolder;
+    font-size: 1.3rem;
+}
+
+
+#ana-kisim{
+   width: 350px;
+   margin: 5vw
+}
+
+
+#header-resimler{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#center-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(243, 242, 242);
+}
+
+#profil-foto img{
+    width: 80px;
+    border-radius: 50%;  
+    position: relative;
+    top: -40px;
+   
+}
+#foto-degistir img{
+    width: 25px;
+    border-radius: 50%;
+    position: relative;
+    top: -70px;
+    right: -30px;
+    
+  }
+#bilgiler{
+    width: 300px;
+    height: 150px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: -75px;
+    align-items: center;
+    border-radius: 5px;
+    font-family: 'Commissioner', sans-serif;
+
+}
+#sosyal-media{
+    display: flex;
+   
+}
+#isim {
+    position: relative;
+    top: -80px;
+}
+h1{
+    font-size: 12px;
+}
+
+h2{
+    font-size: 14px;
+    text-align: left;
+    color: grey;
+    
+}
+
+footer{
+    background-color: white;
+    display: flex;
+    width: 350px;
+    justify-content: space-around;
+    opacity: 0.8;
+}
+
+footer:hover{
+    opacity: 1.0;
+}
+
+.meslek{
+    position: relative;
+    top: -100px;
+   
+}
+
+.meslek p{
+    font-size: 10px;
+    color: grey;
+}
+
+.bilgi{position: relative;
+    top: -130px;
+}
+
+.bilgi p{
+    font-size: 10px;
+    font-family: 'Commissioner', sans-serif;
+    text-align: center;
+    color: grey;
+    padding: 10px;
+}
+
+.media-icon img{
+    width: 20px;
+    position: relative;
+    top: -110px;
+    margin: 6px;
+    opacity: 0.8;
+}
+
+.media-icon img:hover{
+    opacity: 1.0;
+}
+
+.ikincil-baslik{
+    position: relative;
+    top: -50px;
+    left: -75px;
+}
+
+#ikinci-section{
+    background-color: white;
+    width: 300px;
+    border-radius: 5px;
+    position: relative;
+    top:-25px;
+}
+
+#ikinci-section img{
+    width: 40px;
+}
+
+#ikinci-section p{
+    font-size: 13px;
+    padding: 8px;
+    font-family: 'Commissioner', sans-serif;
+    font-weight: bold;
+}
+
+.ana-satir{
+    display: flex;
+    opacity: 0.8;
+    justify-content:left ;
+    align-items: center;
+}
+
+.ana-satir:hover{
+    opacity: 1.0;
+}
+
+#son-baslik{
+    position: relative;
+    left: -75px;
+}
+
+.orta{
+    margin-left: 20px;
+} 
+
+#sag1{
+    margin-left: 50px;
+}
+
+#sag2{
+    margin-left: 84px;
+}
+
+#sag3{
+    margin-left: 70px ;
+}
+#sag4{  
+    margin-left: 128px;
+}
+
+.karekter-resmi{
+    margin-left: 20px;
+}

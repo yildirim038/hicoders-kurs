@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slicing</title>
+    <link rel="stylesheet" href="./sytile.css">
+    <link rel="stylesheet" href="./bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  
+</head>
+
+<body>
+    <main id="conteyner">
+        <header id="baslik">
+            <div>
+                <div>
+                    <div>
+                        <img src="data:image/png;base64,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"
+                            alt="simge resmi">
+                    </div>
+                    <div>
+                        <h1>ICONFINDER</h1>
+                    </div>
+                </div>
+                <div id="aramakutusu">
+                    <form action="bul" method="get">
+                        <input type="text" name="ara" id="AKutu" />
+                        <input type="submit" value="Ara" id="AButon" />
+                    </form>
+                </div> <!-- #aramakutusu -->
+                <div class=acilanmenu>
+                    <a href="" role="button">Explore</a>
+                </div>
+                <div id="yükselt">
+                    <a href="">Upgrade to Pro</a>
+                </div>
+                <div class="son">
+                    <a href=""><img
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTWdJMPhUZphTmvwebSmxeBGrhe2ZZlu3vfRUQLY_NJJvAaFrJsIwrRR5QwDYYCJ0SvvcogrVbLsOaR_m57pCBFZreD4lCl0Xh31Q&usqp=CAU&ec=45707744"
+                            alt="sepet"></a>
+
+                    <button>Longin</button>
+
+                    <button>Sing up</button>
+                </div>
+                <nav>
+                    <div>
+                        <ul class="nav nav-tabs">
+                            <li role="presentation" class="active"> <a href="./CSS_Week2_AliOsman_YILDIRIM_slicing.html">All Preis</a></li>
+                            <li role="presentation"><a href="#">Free</a></li>
+                            <li role="presentation"><a href="#">Premium</a></li>
+                        </ul>
+                    </div>
+                    <div class="menu">
+                        <ul>
+                            <li><a href="">All Styles</a></li>
+                            <li><a href="">Glyph</a></li>
+                            <li><a href="">Outline</a></li>
+                            <li><a href="">Flat</a></li>
+                            <li><a href="">Filled Outline</a></li>
+                            <li><a href="">More</a></li>
+                        </ul>
+                    </div>
+                    <div class="acilanmenu">
+                        <a href="" role="button">All licenses</a>
+                    </div>
+                    <div class="acilanmenu">
+                        <a href="" role="button">Staff picks</a>
+                    </div>
+                    <div class="acilanmenu">
+                        <a href="" role="button">Most relevant</a>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <section>
+            <div class="baslik">
+                <h2>Free accept icons</h2>
+            </div>
+            <div id="istatistik">
+                <!--Abi buraya bir istatistik koymam gerekiyor ama tam olarak nasil yapildigini bilmiyorum.-->
+            </div>
+            <div class="resim">
+                <img src="./img/resim1.png" alt="">
+                <img src="./img/resim2.png" alt="">
+                <img src="./img/resim3.png" alt="">
+                <img src="./img/resim4.png" alt="">
+                <img src="./img/resim5.png" alt="">
+                <img src="./img/resim6.png" alt="">
+                <img src="./img/resim7.png" alt="">
+                <img src="./img/resim8.png" alt="">
+            </div>
+            <div class="resim">
+                <img src="./img/resim9.png" alt="">
+                <img src="./img/resim10.png" alt="">
+                <img src="./img/resim11.png" alt="">
+                <img src="./img/resim12.png" alt="">
+                <img src="./img/resim13.png" alt="">
+                <img src="./img/resim14.png" alt="">
+                <img src="./img/resim15.png" alt="">
+                <img src="./img/resim16.png" alt="">
+            </div>
+            <div class="resim">
+                <img src="./img/resim17.png" alt="">
+                <img src="./img/resim18.png" alt="">
+                <img src="./img/resim19.png" alt="">
+                <img src="./img/resim20.png" alt="">
+                <img src="./img/resim21.png" alt="">
+                <img src="./img/resim22.png" alt="">
+                <img src="./img/resim23.png" alt="">
+                <img src="./img/resim24.png" alt="">
+            </div>
+            <div class="resim">
+                <img src="./img/resim25.png" alt="">
+                <img src="./img/resim26.png" alt="">
+                <img src="./img/resim27.png" alt="">
+                <img src="./img/resim28.png" alt="">
+                <img src="./img/resim29.png" alt="">
+                <img src="./img/resim30.png" alt="">
+                <img src="./img/resim31.png" alt="">
+                <img src="./img/resim32.png" alt="">
+            </div>
+            <ul class="nav nav-tabs">
+                <li role="presentation" class="active"><a href="#">Home</a></li>
+                <li role="presentation"><a href="#">Profile</a></li>
+                <li role="presentation"><a href="#">Messages</a></li>
+              </ul>
+        </section>
+    </main>
+</body>
+
+</html>

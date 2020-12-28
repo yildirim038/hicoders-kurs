@@ -1,0 +1,140 @@
+main {
+    width: 1100px;
+    margin: auto;
+}
+
+header {
+    background-image: url(./img/tumblr_m6djf3TpBh1r8vu3lo1_500.jpg);
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    height: 180px;
+    margin: 3%;
+    text-align: center;
+}
+
+#resim {
+    border-radius: 50%;
+    overflow: hidden;
+    max-width: 225px;
+    position: absolute;
+}
+
+#baslik {
+    color: rgb(21, 38, 136);
+    padding-top: 5px;
+}
+
+header,
+section {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+nav a {
+    background-color: rgb(255, 255, 255);
+    font-size: 140%;
+    border-radius: 25px;
+    padding: 3%;
+    text-decoration: none;
+    display: table;
+    opacity: 0.7;
+    color: rgb(5, 7, 5);
+    width: 170px;
+}
+
+nav li {
+    display: inline-block;
+    position: relative;
+    margin: 5px;
+
+}
+
+aside,
+section {
+    font-style: normal;
+}
+
+#container {
+    display: inline-block;
+}
+
+fieldset span {
+    float: right;
+}
+
+nav a:hover {
+    opacity: 1.0;
+}
+
+#sol {
+    width: 225px;
+    margin-left: 3%;
+    float: left;
+    height: 1000px;
+}
+
+.kisisel {
+    font-style: normal;
+}
+
+p{
+    width: 750px;
+}
+
+.yazi {
+    margin-top: 70%;
+    box-sizing: border-box;
+    font-size: 130%;
+    text-align: center;
+}
+
+.sosyal {
+    font-size: 150%;
+}
+
+.sosyal img {
+    width: 45px;
+    height: 45px;
+}
+
+.bilgi {
+    font-size: 150%;
+    display: flex;
+}
+
+.bilgi img {
+    width: 80px;
+    height: 100px;
+}
+
+.bilgi table {
+    text-align: center;
+}
+
+#oz {
+    color: rgb(3, 3, 161);
+}
+
+#oz legend {
+    color: black;
+}
+
+th {
+    background-color: rgb(122, 122, 253);
+    border: rgb(52, 2, 82) solid;
+    border-radius: 5px;
+    color: white;
+}
+
+td {
+    border: lightblue 2px solid;
+    border-radius: 5%;
+}
+
+td:nth-child(1) {
+    text-align: left;
+}
+
+tr:nth-child(odd) {
+    background: lightskyblue;
+}

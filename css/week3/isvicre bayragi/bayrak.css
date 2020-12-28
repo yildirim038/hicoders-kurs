@@ -1,0 +1,55 @@
+header{
+    color: blueviolet;
+    text-align: center;
+    font-size: 50px;
+    font-family: 'Times New Roman', Times, serif;
+    }
+/* Isvicre bayraginin ölcü oranlari 32br*32br bayragin ortasinda olan hac isaretinin kenarlara uzakligi 6br ve
+ bayragin ortasindaki hacin toplam boyutu 20 br. seklinde wikipedia da buldum ondan dolayi ur oranlari kullandim.
+ https://en.wikipedia.org/wiki/Flag_of_Switzerland*/
+section {
+    width: 640px;
+    height: 640px;
+    background-color: red;
+    margin: 10%;
+}
+
+div {
+    display: inline-flex;
+}
+
+.yatay1 {
+    width: 140px;
+    height: 120px;
+    background-color: red;
+    padding: 260px 0px 260px 120px;
+    float: left;
+}
+
+.ic1 {
+    width: 140px;
+    height: 120px;
+    background-color: white;
+    padding: 0%;
+}
+
+.dikey {
+    width: 120px;
+    height: 400px;
+    background-color: red;
+    padding: 120px 0px 0px 0px;
+    float: left;
+}
+
+.ic2 {
+    width: 120px;
+    height: 400px;
+    background-color: white;
+}
+
+.yatay2 {
+    width: 140px;
+    height: 120px;
+    background-color: red;
+    padding: 260px 120px 260px 0px
+}

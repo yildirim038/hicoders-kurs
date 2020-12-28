@@ -1,0 +1,70 @@
+
+#baslik{
+    background-color:#AD29E3;
+    
+}
+#baslik img{
+    width: 100px;
+    margin-top: 10px;
+    float: left;
+    opacity: 0.6;
+    border-radius: 50px;
+    }
+.baslik{
+    color:#AEE329 ;
+    font-size: 150%;
+    display: inline-block;
+    margin-left: 20%;
+}
+nav table{
+    border:3px #AD29E3 solid;
+    margin-left: 23%;
+    border-radius: 10px;
+}
+nav th{
+    background-color:#CEFF52 ;
+}
+nav tr:nth-child(3){
+    background-color: #CEFF52;
+    opacity: 0.8;
+}
+nav td, nav th{
+    border: solid 3px #AD29E3;
+    border-radius: 25px;
+}
+nav img{
+    border-radius: 25px;
+}
+#bas h2{
+    margin-left: 25%;
+    color:#749917 ;
+}
+#bas p{
+    margin-left: 10%;
+}
+#bas img{
+    margin-left: 11%;
+}
+.tab{
+    margin-left: 35%;
+    border-radius: 15px;
+    border: 2px solid #AD29E3;
+}
+.tab td{
+    border: 2px solid #ad29e3;
+    border-radius: 25px;
+    background-color: #AEE329;
+}
+.satinal{
+    margin-left: 37%;
+}
+button{
+    border-radius: 25px;
+    opacity: 0.6;
+}
+button:hover{
+    opacity: 1.0;
+}
+footer{
+    background-color: #AD29E3;
+}
