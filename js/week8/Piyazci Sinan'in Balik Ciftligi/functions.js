@@ -2,11 +2,6 @@ function findSeason(season, desiredSeason) {
     return desiredSeason === season;
 }
 
-function isItBern(city) {
-    const location = "BE";
-    return location === city;
-}
-
 function showEndOfUseDate() {
     let newList = [];
     fishFarm.map((day) => {
@@ -29,14 +24,4 @@ function chooseKanton(swissRomandaRegion) {
         const element = swissRomandaRegion[index];
         return element;
     }
-}
-
-function isItTicino(city) {
-    const location = "TI";
-    return location === city;
-}
-
-function isItZurich(city) {
-    const location = "ZH";
-    return location === city;
 }

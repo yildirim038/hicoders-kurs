@@ -129,17 +129,8 @@ console.log("Fiyati 9 ile 12 Frank arasi Ücreti olan Baliklar;", rangePriceList
 /** 
  * Sadece Bern'de ve kis sezonu satilan baliklar hangileridir?
  */
-let winterFishInBern = []
-const KANTON = "BE"
-
-for (let index = 0; index < fishFarm.length; index++) {
-    const element = fishFarm[index].season;
-    const location = fishFarm[index].saleLocations;
-    const season = "Winter"
-    if (findSeason(season, element) && (KANTON === location.find(isItBern))) {
-        winterFishInBern.push(fishFarm[index].fishType)
-    }
-}
+const winterFishInBernObject = fishFarm.filter(item => item.season === "Winter" && item.saleLocations.includes("BE"));
+const winterFishInBern = winterFishInBernObject.map(element => element.fishType)
 
 console.log("Kisin Bern de Satilan Baliklar;", winterFishInBern)
 /** 
@@ -192,8 +183,6 @@ console.log("En Uzun Süre Dayanan Baliklar:", longestDurationFishNames)
 /**
  * Kis ve sonbahar sezonu icin swiss romande region 'da satilan baliklarin ortalama fiyati nedir?
  */
-
-
 const swissRomandaRegion = ["VD", "NE", "GE", "JU"];
 let swissRomandaRegionFishs = []
 let totalPreis = 0;
@@ -221,37 +210,16 @@ console.log(`Kis ve sonbahar sezonu icin swiss romande region'da satilan balikla
 /**
  * Ticino Kantonu icin stokta toplam ne kadar balik mevcuttur ?
  */
-let fishStockInTicino = [];
-const KANTON_TI = "TI"
-let totalStockInTicino = 0;
+const fishStockInTicino = fishFarm.filter(item => item.saleLocations.includes("TI"));
 
-for (let index = 0; index < fishFarm.length; index++) {
-    const element = fishFarm[index].saleLocations;
-    if (KANTON_TI == element.find(isItTicino)) {
-        fishStockInTicino.push(fishFarm[index].stockVolumeInKg)
-    }
-}
-
-for (let index = 0; index < fishStockInTicino.length; index++) {
-    const element = fishStockInTicino[index];
-    totalStockInTicino = totalStockInTicino + element;
-}
-
-console.log("Ticino icin stokta olan balik miktari:", totalStockInTicino, "KG")
+console.log(`Ticino Kantonu icin stokta olan balik miktari :${fishStockInTicino.reduce(function (accumulator, currentValue, ) {
+    return accumulator + currentValue.stockVolumeInKg;
+}, 0)}`)
 /**
  *Yazlik sezonda cikan ve AB disindan gelen ve de ZH 'de satilan baliklarin ortalama gramajini bulunuz?
  */
-const outsideEuFish = fishFarm.filter(item => (item.originCountry === "Egypt" || item.originCountry === "Norway" || item.originCountry === "Japan" || item.originCountry === "Vietnam" || item.originCountry === "United Kingdom") && item.season === 'Summer');
-const KANTON_ZH = "ZH";
-let fishItemWeightInGrams = [];
-const reducer = (accumulator, currentValue) => accumulator + currentValue;
+const outsideEuFish = fishFarm.filter(item => (item.originCountry === "Egypt" || item.originCountry === "Norway" || item.originCountry === "Japan" || item.originCountry === "Vietnam" || item.originCountry === "United Kingdom") && (item.season === 'Summer') && item.saleLocations.includes("ZH"));
 
-for (let index = 0; index < outsideEuFish.length; index++) {
-    const element = outsideEuFish[index].saleLocations;
-    const elementGram = outsideEuFish[index].itemWeightInGrams;
-    if (KANTON_ZH === element.find(isItZurich)) {
-        fishItemWeightInGrams.push(elementGram)
-    }
-}
-
-console.log(`Yazlik sezonda cikan ve AB disindan gelen ve de ZH 'de satilan baliklarin ortalama gramaji : ${fishItemWeightInGrams.reduce(reducer)/fishItemWeightInGrams.length}`)
+console.log(`Yazlik sezonda cikan ve AB disindan gelen ve de ZH 'de satilan baliklarin ortalama gramaji : ${outsideEuFish.reduce(function (accumulator, currentValue, ) {
+    return accumulator + currentValue.itemWeightInGrams;
+}, 0)/outsideEuFish.length}`)
