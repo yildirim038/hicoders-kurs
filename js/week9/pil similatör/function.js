@@ -1,50 +1,56 @@
 function fillBattery() {
-    if (batteryStatus < 3) {
-        batteryStatus++;
-    }
-    if (batteryStatus === 1) {
-        batteryBoxOne.style.background = "red";
-        batteryRate.innerHTML = "Doluluk Orani: %33"
-    }
-    if (batteryStatus === 2) {
-        batteryBoxOne.style.background = "orange";
-        batteryBoxTwo.style.background = "orange";
-        batteryRate.innerHTML = "Doluluk Orani: %66"
-    }
-    if (batteryStatus === 3) {
-        batteryBoxOne.style.background = "green";
-        batteryBoxTwo.style.background = "green";
-        batteryBoxThree.style.background = "green";
-        batteryRate.innerHTML = "Doluluk Orani: %100"
-    }
+    batteryStatusPlus();
+    chenchColorBattery();
+    chenchBatteryRate();
 }
 
 function emptyBattery() {
+    batterxStatusMinus();
+    chenchColorBattery();
+    chenchBatteryRate();
+}
+
+function batteryStatusPlus() {
+    if (batteryStatus < 3) {
+        batteryStatus++;
+    }
+}
+
+function batterxStatusMinus() {
     if (batteryStatus > 0) {
         batteryStatus--;
     }
+}
+
+function chenchColorBattery() {
     if (batteryStatus === 0) {
-        batteryBoxOne.style.background = "white";
-        batteryBoxTwo.style.background = "white";
-        batteryBoxThree.style.background = "white";
-        batteryRate.innerHTML = "Doluluk Orani: %0"
+        batteryBoxOne.style["background-color"] = "white";
+        batteryBoxTwo.style["background-color"] = "white";
+        batteryBoxThree.style["background-color"] = "white";
+    } else if (batteryStatus === 1) {
+        batteryBoxOne.style["background-color"] = "red";
+        batteryBoxTwo.style["background-color"] = "white";
+        batteryBoxThree.style["background-color"] = "white";
+    } else if (batteryStatus === 2) {
+        batteryBoxOne.style["background-color"] = "orange";
+        batteryBoxTwo.style["background-color"] = "orange";
+        batteryBoxThree.style["background-color"] = "white";
+    } else if (batteryStatus === 3) {
+        batteryBoxOne.style["background-color"] = "green";
+        batteryBoxTwo.style["background-color"] = "green";
+        batteryBoxThree.style["background-color"] = "green";
     }
-    if (batteryStatus === 1) {
-        batteryBoxOne.style.background = "red";
-        batteryBoxTwo.style.background = "white";
-        batteryBoxThree.style.background = "white";
-        batteryRate.innerHTML = "Doluluk Orani: %33"
-    }
-    if (batteryStatus === 2) {
-        batteryBoxOne.style.background = "orange";
-        batteryBoxTwo.style.background = "orange";
-        batteryBoxThree.style.background = "white";
-        batteryRate.innerHTML = "Doluluk Orani: %66"
-    }
-    if (batteryStatus === 3) {
-        batteryBoxOne.style.background = "green";
-        batteryBoxTwo.style.background = "green";
-        batteryBoxThree.style.background = "green";
-        batteryRate.innerHTML = "Doluluk Orani: %100"
+
+}
+
+function chenchBatteryRate() {
+    if (batteryStatus === 0) {
+        batteryRate.innerHTML = "Doluluk Orani: %0";
+    } else if (batteryStatus === 1) {
+        batteryRate.innerHTML = "Doluluk Orani: %33";
+    } else if (batteryStatus === 2) {
+        batteryRate.innerHTML = "Doluluk Orani: %66";
+    } else if (batteryStatus === 3) {
+        batteryRate.innerHTML = "Doluluk Orani: %100";
     }
 }
