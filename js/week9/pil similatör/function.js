@@ -1,23 +1,23 @@
 function fillBattery() {
-    batteryStatusPlus();
+    batteryStatusPlus(3);
     chenchColorBattery();
     chenchBatteryRate();
 }
 
 function emptyBattery() {
-    batterxStatusMinus();
+    batterxStatusMinus(0);
     chenchColorBattery();
     chenchBatteryRate();
 }
 
-function batteryStatusPlus() {
-    if (batteryStatus < 3) {
+function batteryStatusPlus(maxValue) {
+    if (batteryStatus < maxValue) {
         batteryStatus++;
     }
 }
 
-function batterxStatusMinus() {
-    if (batteryStatus > 0) {
+function batterxStatusMinus(minValue) {
+    if (batteryStatus > minValue) {
         batteryStatus--;
     }
 }
