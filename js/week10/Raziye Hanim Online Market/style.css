@@ -1,0 +1,33 @@
+img {
+    width: 3vw;
+}
+
+table td {
+    width: 30vw;
+    text-align: center;
+}
+
+#app {
+    display: flex;
+}
+
+#table-sale {
+    margin: 1vw;
+    width: 75vw;
+    border: black 2px solid;
+    text-align: center;
+    min-width: 450px;
+}
+
+#sepet {
+    margin: 1vw;
+    width: 20vw;
+    text-align: center;
+    border: dotted black 3px;
+    max-width: 300px;
+}
+
+button {
+    width: 6vw;
+    height: 6vh;
+}
