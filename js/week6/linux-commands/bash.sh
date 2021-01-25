@@ -54,7 +54,7 @@
 #    done
 #============================
 #DOSYALAR=$(ls *.txt)
-#YENI="yeni"
+#YENI="main"
 #for DOSYA in $DOSYALAR
 #do
 #    echo "Dosya adi $DOSYA $YENI-$DOSYA olarak degistiriliyor"
@@ -86,11 +86,11 @@
 #    echo $index
 #done
 #==================================
-for ((index=0; index<10; index++))
-do 
-    if [ $index -eq 5 ] || [ $index -eq 8 ]
-    then    
-        continue
-    fi
-    echo $index
-done
+#for ((index=0; index<10; index++))
+#do 
+#    if [ $index -eq 5 ] || [ $index -eq 8 ]
+#    then    
+#        continue
+#    fi
+#    echo $index
+#done
