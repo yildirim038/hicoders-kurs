@@ -1,0 +1,25 @@
+header {
+    margin: 2vh;
+    text-align: center;
+}
+
+main {
+    display: flex;
+}
+
+#form {
+    width: 50vw;
+    padding: 2vw;
+    border-right: blue 2px solid;
+    height: 88vh;
+}
+
+section {
+    margin: 1vw;
+}
+
+td,
+th,
+span {
+    width: 10vw;
+}

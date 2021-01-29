@@ -1,0 +1,26 @@
+main {
+    display: flex;
+    padding-left: 30vw;
+}
+
+div {
+    margin: 0vh 1vw;
+    text-align: center;
+}
+
+body {
+    margin-top: 40vh;
+}
+
+label {
+    margin-left: 20vw;
+}
+
+#clock {
+    border: blue solid 3px;
+    text-align: center;
+    width: 25vw;
+    color: floralwhite;
+    background-color: darkblue;
+
+}
