@@ -1,0 +1,48 @@
+main {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#drag-countainer,
+#drop-countainer {
+    display: flex;
+}
+
+#drop-countainer {
+    margin-top: 2vh;
+}
+
+#drag-countainer div,
+#drop-countainer div {
+    width: 10vw;
+    height: 11vh;
+    background-color: aqua;
+    margin-right: 1vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    color: rgb(34, 25, 62);
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.dragging {
+    opacity: 0.2;
+}
+
+.drag-select {
+    border: 2px blueviolet solid;
+}
+
+#new,
+#test {
+    margin-top: 1vw;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 3vh;
+}
