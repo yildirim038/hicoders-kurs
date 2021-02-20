@@ -1,0 +1,23 @@
+body {
+    background-image: url(https://media.istockphoto.com/vectors/mathematics-background-different-numbers-pattern-vector-id838401962);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5vw;
+}
+
+section {
+    width: 50vw;
+    margin-top: 10vh;
+    height: 50vh;
+    text-align: center;
+}
+
+div {
+    background-color: azure;
+}
