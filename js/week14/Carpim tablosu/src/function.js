@@ -81,8 +81,8 @@ function addPlayer(pEvent) {
  * Ekrani yenileme Foksiyonu
  */
 function updateUI() {
-    retrieveList()
-    gameElement.innerHTML = creatList(players)
+    //  retrieveList()                                                  //    Abi bu kismi local storage attim ama bir türlü düzgün alamadim.
+    gameElement.innerHTML = creatList(players) //     Kodu denedigimde undefined olarak objeler cikiyor.
 
 }
 /**
