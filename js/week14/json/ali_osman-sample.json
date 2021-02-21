@@ -1,0 +1,14 @@
+{
+    "firstName": "Ali",
+    "lastName": "Osman",
+    "age": 34,
+    "address": {
+        "streetAddress": "Cumhuriyet",
+        "ilce": "YeniMahalle",
+        "kanton": "Ankara",
+        "postalCode": "06100"
+    },
+    "home":[ "WI-FI", "HD-TV"],
+    "school":null,
+    "kurs":true
+}
