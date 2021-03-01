@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carpim Tablosu Programi</title>
+    <style>
+        #main-container {
+            display: flex;
+            flex-direction: row;
+            /* justify-content:space-around; */
+
+        }
+
+        #user-container {
+            background-color: #ebffc2;
+            width: 30%;
+            height: 100vh;
+            padding: 20px;
+
+        }
+
+        #player-container {
+            width: 100%;
+            background-color: cornflowerblue;
+        }
+
+        #new-user {
+            padding: 3%;
+            margin-bottom: 40px;
+            border-bottom: 5px solid darkred;
+        }
+
+        #user-score {
+            /* width: 25%; */
+        }
+
+        #play-section {
+            display: flex;
+            margin: auto;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            width: 40vw;
+            height: 20vh;
+            background-color: #dba34f;
+            font-size: 2rem;
+            font-weight: bolder;
+            text-align: center;
+            padding: 100px;
+        }
+
+        #answer {
+            width: 130px;
+            height: 43px;
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <main id="main-container">
+        <section id="user-container">
+            <div id="new-user">
+            </div>
+
+            <div id="user-score">
+            </div>
+        </section>
+
+        <section id="player-container">
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        window.onload = () => {
+            renderForm();
+            renderFromLocalStorage();
+        };
+
+        userPart.addEventListener("click", clickEventHandler);
+        playerArea.addEventListener("click", playAreaEventHandler);
+        const userPart = document.querySelector("#user-container");
+        const newUser = document.querySelector("#new-user");
+        const playerArea = document.querySelector('#player-container');
+        const tableComponent = document.querySelector("#user-score");
+
+        const personData = [];
+        let selectedPersonList = [];
+        let selectedRowIndex;
+        //eventlistener fonksiyonlari
+        function clickEventHandler(pEvent) {
+            let clickedElement = pEvent.target;
+            if (clickedElement.id === "btn-add-student") {
+                pEvent.preventDefault();
+                newPersonId = addNewPersonData(personData);
+                newPerson = getData(newPersonId);
+                renderForm()
+            }
+            if (clickedElement.id === "btn-start") {
+                pEvent.preventDefault();
+                createMultiplePlay()
+                selectedRowIndex = clickedElement.closest("tr").id;
+                let selectedPerson = personData[selectedRowIndex];
+                selectedPerson.score = 0;
+                selectedPersonList.push(selectedPerson);
+            }
+            renderTable(personData);
+        }
+
+        function playAreaEventHandler(pEvent) {
+            let clickedElement = pEvent.target;
+            if (clickedElement.id === "btn-answer-check") {
+                pEvent.preventDefault();
+                checkAnswer(resultArray, points);
+                checkedPerson = personData[selectedRowIndex];
+                checkedPerson.score = getTotalPoint(points)
+                selectedPersonList = [];
+                renderTable(personData);
+            }
+            if (clickedElement.id === "btn-finish") {
+                stopPlay()
+                personData.forEach(person => saveData(person, person.id));
+            }
+        }
+        /**
+         * bu fonksiyon form komponentini ekrana yazdirir.
+         */
+        function renderForm() {
+            newUser.innerHTML = createForm();
+        }
+
+        /**
+         * bu fonksiyon localstorage da kayitli kisi varsa tabloya onu yazdirir.
+         */
+        function renderFromLocalStorage() {
+            for (let index = 0; index < localStorage.length; index++) {
+                if (localStorage.length != 0) {
+                    const personId = localStorage.key(index);
+                    personData.push(getData(personId));
+                    renderTable(personData);
+                } else {
+                    renderTable(personData);
+                }
+            }
+        }
+
+        /**
+         * bu fonksiyon kendisine gönderilen kisi bilgileri arrayini kullanarak olusturulan tabloyu
+         * ekrana yazdiri.
+         * @param {array} pPersonData 
+         */
+        function renderTable(pPersonData) {
+            tableComponent.innerHTML = createTable(pPersonData);
+        }
+
+        /**
+         * bu fonksiyon kendisine gönderilen kisi bilgileri arrayini alip tablo basligi ve gövdesini birlestirir. 
+         * @param {arrray} pPersonData 
+         */
+        function createTable(pPersonData) {
+            return `
+    <table class="table table-sm">
+    ${createTableHead()}
+    ${createTableBody(pPersonData)}
+    </table>
+    `;
+        }
+
+        /**
+         * bu fonksiyon kisi bilgilerinin yer aldigi tablonun baslik kismini olusturur.
+         */
+        function createTableHead() {
+            return `
+        <thead class="table-light">
+            <tr>
+                <th>Sira</th>
+                <th>Ad</th>
+                <th>Puan</th>
+                <th>Tarih</th>
+                <th></th>
+            </tr>
+        </thead>
+`;
+        }
+
+        /**
+         * bu fonksiyon kendisine gönderilen kisi bilgileri arrayinden satir ekleme fonksiyonunu da
+         * kullanarak tablonun gövdesine satirlari ekler.
+         * @param {array} pPersonData 
+         */
+        function createTableBody(pPersonData) {
+            return `
+            <tbody>
+                ${addNewPersonRow(pPersonData)}
+            </tbody>
+    `;
+        }
+
+        /**
+         * bu fonksiyon yeni kisi isminin girildigi formu olusturur.
+         */
+        function createForm() {
+            return `
+    <form class="row row-cols-lg-auto g-3 align-items-center">
+        <div class="col-12">
+        <label class="visually-hidden" for="inlineFormInputGroupUsername">Ad</label>
+        <div class="input-group">
+            <input type="text" class="form-control" id="name" placeholder="isim ekle">
+        </div>
+        </div>
+    
+        <div class="col-12">
+            <button id="btn-add-student" type="submit" class="btn btn-info">Add</button>
+        </div>
+  </form>
+  `;
+        }
+
+        /**
+         * Bu fonksiyon forma girilen isim bilgilerini array icerisinde obje olarak kaydeder ve icerisine 
+         * yerlestirilen fonksiyon ile kisi bilgilerini local storage ekler.
+         * @param {array} pPersonData 
+         */
+        function addNewPersonData(pPersonData) {
+            let name = document.querySelector("#name").value;
+            let id = new Date().getTime();
+            let score = 0;
+            let date = new Date().toLocaleDateString();
+            let newPerson = {
+                id,
+                name,
+                score,
+                date
+            };
+            pPersonData.push(newPerson)
+            saveData(newPerson, id) // locale kayit
+            return id;
+        }
+        /**
+         * bu fonksiyon kendisine gönderilen arraydeki bilgileri index ekleyerek tabloya yazdirir.
+         * @param {array} pPersonData 
+         */
+        function addNewPersonRow(pPersonData) {
+            let personRows =
+                pPersonData.map((person, index) => `
+            <tr id=${index}>
+                <td>${index+1}</td>
+                <td>${person.name}</td>
+                <td>${person.score}</td>
+                <td>${person.date}</td>
+                <td><button id="btn-start" type="submit" class="btn btn-warning">Basla</button></td>
+            </tr>
+        `).join("");
+            return personRows;
+        }
+
+        //localStorage ekleme fonksiyonu
+        function saveData(pNewPerson, pId) {
+            stringifiedPersonList = JSON.stringify(pNewPerson);
+            localStorage.setItem(pId, stringifiedPersonList);
+        }
+
+        //localStoragedan getirme fonksiyonu
+        function getData(pId) {
+            let stringifiedPersonList = localStorage.getItem(pId);
+            return JSON.parse(stringifiedPersonList);
+        }
+        const POINT = 10;
+        const TOTAL_QUESTION = 10;
+        let resultArray = [];
+        let answerArray = [];
+        let points = [];
+
+        /**
+         * bu fonksiyon oyun alanina sorunun ve formun bulundugu komponentlerini yazdirir.
+         */
+        function createMultiplePlay() {
+            playerArea.innerHTML = createNewSection()
+        }
+
+        /**
+         * bu fonksiyon oyun alanini temizler.
+         */
+        function stopPlay() {
+            playerArea.innerHTML = "";
+        }
+
+        /**
+         * bu fonksiyon soru ve form komponentlerini olusturur.
+         */
+        function createNewSection() {
+            return `
+    <section id = "play-section">
+        <div>
+            ${getQuestion()}
+        </div>
+        <div>
+            ${getAnswerInput()}
+        </div>
+    </section> 
+    `;
+        }
+
+        /**
+         * bu fonksiyon yazdirilan sorunun cevabini input olarak almak icin formu ve eventlar icin butonlari olusturur. 
+         */
+        function getAnswerInput() {
+            return `
+    <form class="row row-cols-lg-auto g-3 align-items-center">
+        <div class="col-12">
+        <label class="visually-hidden" for="inlineFormInputGroupUsername">Ad</label>
+        <div class="input-group">
+            <input type="number" class="form-control" id="answer" placeholder="cevabi yaz">
+        </div>
+        </div>
+        <div class="col-12">
+            <button id="btn-answer-check" type="submit" class="btn btn-success">Check</button>
+            <button id="btn-finish" type="submit" class="btn btn-danger">Finish</button>
+        </div>
+  </form>
+  `;
+        }
+
+        /**
+         * bu fonksiyon random olarak carpanlari ve  carpim sorusunu olusturur.
+         * carpimin sonucunu resultarraya gönderir.
+         */
+        function getQuestion() {
+            firstNumber = Math.floor((Math.random() * 10) + 1);
+            secondNumber = Math.floor((Math.random() * 10) + 1);
+            result = firstNumber * secondNumber;
+            resultArray.push(result);
+            return `${firstNumber} * ${secondNumber}`
+        }
+
+        /**
+         * bu fonksiyon sorularin cevaplarini kontrol eder..
+         */
+        function checkAnswer(pResultArray, pPoints) {
+            let answer = document.querySelector("#answer").value;
+            answerArray.push(answer);
+            let result = pResultArray[pResultArray.length - 1];
+            console.log(result)
+            if (+result === +answer) {
+                pPoints.push(POINT);
+                alert("Bravoo!! Haydi sonraki sorun hazir?");
+                isLastQuestion(pResultArray, pPoints)
+                stopPlay()
+            } else {
+                alert("yanlis cevap..Sonraki soruya gecelim..");
+                isLastQuestion(pResultArray, pPoints)
+                stopPlay()
+            }
+            createMultiplePlay()
+            let total = getTotalPoint(pPoints)
+            console.log(total);
+            return total;
+        }
+
+        //Toplam puani hesaplama fonksiyonu
+        function getTotalPoint(pPoints) {
+            let result = pPoints.length * POINT;
+            return result;
+        }
+
+        //soru sayisini hesaplama fonksiyonu
+        function isLastQuestion(pResultArray, pPoints) {
+            if (pResultArray.length === TOTAL_QUESTION) {
+                alert("oyun bitti! puanin = " + getTotalPoint(pPoints))
+            }
+        }
+    </script>
+</body>
+
+</html>

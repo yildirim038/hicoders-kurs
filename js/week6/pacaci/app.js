@@ -14,4 +14,4 @@ for (let index = 0; index < cifliktekiHayvanlar.length; index++) {
     }
 }
 
-document.write(`Kullanilabilir ayak sayisi: ${kullanilabilirHayvanlarAhiri.length * kullanilabilenHayvanBacakSayisi}`);
+console.log(`Kullanilabilir ayak sayisi: ${kullanilabilirHayvanlarAhiri.length * kullanilabilenHayvanBacakSayisi}`);

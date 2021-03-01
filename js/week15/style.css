@@ -1,0 +1,13 @@
+main {
+    margin-top: 20vh;
+    width: 50vw;
+    margin-left: 25vw;
+    background-color: rgb(203, 248, 248);
+}
+
+table,
+h1,
+h3,
+td {
+    text-align: center;
+}
