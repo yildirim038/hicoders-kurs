@@ -1,10 +1,17 @@
+/**
+ * Header
+ */
 function createListHeader() {
     return ` <h3>Temizlenecek Yer Sahipleri</h3>
     <tr>
         <th>Adi-Soyadi</th>
     </tr>`;
 }
-
+/**
+ * Liste olusturan fonksiyon
+ * @param {*} pList 
+ * @param {*} id 
+ */
 function createListBody(pList, id) {
     return pList[id].personToClean.map((p, index) => ` 
 <tr>
@@ -14,16 +21,21 @@ function createListBody(pList, id) {
 </tr>
     `).join("");
 }
-
+/**
+ * Adresi olusturan fonksiyon
+ * @param {*} pList 
+ * @param {*} id 
+ * @param {*} nummer 
+ */
 function createListAdress(pList, id, nummer) {
     return pList[id].personToClean[nummer].addresses.map((p) =>
         `<tr><td>${p}</td></tr>`).join("");
 }
-
-function crearteListAddressHeader() {
-    return `<caption><strong>Adres Listesi</strong></caption></table>`
-}
-
+/**
+ * Body kismini birlestiran fonksiyon
+ * @param {*} pList 
+ * @param {*} id 
+ */
 function createListView(pList, id) {
     return `<table class="table table-striped">
     ${createListHeader()}

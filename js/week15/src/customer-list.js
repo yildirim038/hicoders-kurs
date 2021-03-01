@@ -1,3 +1,6 @@
+/**
+ * Person Listesi
+ */
 let customerList = [{
         name: "Jovanny Pouros",
         personToClean: [{
