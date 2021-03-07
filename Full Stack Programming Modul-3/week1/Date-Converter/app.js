@@ -15,4 +15,4 @@ console.log("Hicri Tarihe Gec:", writeHicri(07, 03, 2021))
 /**
  * Hicri tarih gün,ay,yil sirasi ile arasina virgül konularak yazilir.
  */
-console.log("Miladi Tarihe Gec:", writeMiladi(01, 10, 1407))
+console.log("Miladi Tarihe Gec:", writeMiladi(24, 07, 1442))

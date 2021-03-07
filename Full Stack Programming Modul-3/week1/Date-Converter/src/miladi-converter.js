@@ -7,7 +7,7 @@
  */
 function writeMiladi(pDay, pMount, pYear) {
     let date = new Date(`${pYear}-${pMount}-${pDay}`);
-    date.setDate(date.getDate() + 211337);
+    date.setDate(date.getDate() + (211337 + ((1442 - pYear) * 10.9)));
     const newYear = new Intl.DateTimeFormat('tr', {
         year: 'numeric'
     }).format(date)
