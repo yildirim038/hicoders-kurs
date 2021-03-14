@@ -1,0 +1,3 @@
+Ikinci Hafta ödevi:
+Txt formati olan bu Dosya Okutmak ve
+Burda yazan yazilari consola yazdirmak.
