@@ -11,11 +11,11 @@ baslat.onclick = function () {
 
 tahmin.onclick = function () {
     sayac++;
-    if (randomSayi != randomSayi.value && sayac >= hak) {
+    if (randomSayi != sayi.value && sayac >= hak) {
         window.alert("Üzgünüm Süpheliyi yakalayamadiniz. Süphelinin oldugu vagon : " + randomSayi);
         tahmin.disabled = true;
     }
-    if (randomSayi == randomSayi.value) {
+    if (randomSayi == sayi.value) {
         window.alert("Tebrikler Hirsizi Yakaladiniz.");
         if (randomSayi == 1) {
             window.alert("Süpheliyi ilk denemede yakaladiginiz icin  100 puan aldiniz")
@@ -26,7 +26,7 @@ tahmin.onclick = function () {
         } else {
             window.alert("Süpheliyi dördüncü denemede yakaladiginiz icin  60 puan aldiniz")
         }
-    } else if (randomSayi.value > randomSayi) {
+    } else if (sayi.value > randomSayi) {
         window.alert("Ön Vagona ilerleyin");
     } else {
         window.alert("Arka Vagona ilerleyin");
