@@ -78,9 +78,11 @@ function creatList(pList) {
  * Oyun Alaninin Headerini olusturan fonksiyon
  */
 function createOyunHeader() {
-    return `<header>
-    <h1>Carpma Oyunu</h1>
-</header>`
+    return  `
+              <header>
+                 <h1>Carpma Oyunu</h1>
+              </header>
+            `
 }
 /**
  * Oyun Alaninin Süre kismini olusturan fonksiyon
@@ -96,7 +98,7 @@ function createGameArea() {
     <span id="carpi">X</span>
     <span id="ikinciSayi">${sayiUret()}</span>
     <span class="input-group mb-3">
-        <input id="sonuc" type="text" class="form-control" aria-label="Default"
+        <input id="sonuc" type="text" class="form-control" aria-label="Default" autofocus
             aria-describedby="inputGroup-sizing-default" placeholder="Sonucu Giriniz">
     </span>
     <button id="tamam"  type="button" class="btn btn-secondary">Tamam</button>`

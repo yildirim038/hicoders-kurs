@@ -33,7 +33,7 @@ function sayiKiyasla() {
     const cevap = document.getElementById("sonuc").value
     let puan = 0;
     if (sayi1 * sayi2 == cevap) {
-        puan = 10
+        puan = 4
     }
     return puan;
 }
@@ -81,7 +81,7 @@ function addPlayer(pEvent) {
  * Ekrani yenileme Foksiyonu
  */
 function updateUI() {
-    //  retrieveList()                          //    Abi bu kismi local storage attim ama bir türlü düzgün alamadim.
+     retrieveList()                          //    Abi bu kismi local storage attim ama bir türlü düzgün alamadim.
     gameElement.innerHTML = creatList(players) //     Kodu denedigimde undefined olarak objeler cikiyor.
 
 }
@@ -96,7 +96,7 @@ function kayitUI() {
  */
 function oyunUI() {
     gameElement.innerHTML = createGame()
-    saniye = 10
+    saniye = 30
     saniyeBaslat()
 }
 /**
@@ -123,17 +123,21 @@ function startGame(pEvent) {
  */
 function gamePlay(pEvent) {
     if (pEvent.target.id === "tamam") {
-        if (oyunSayisi < 10) {
+        if (oyunSayisi < 25) {
             oyunSayisi++
             oyunPuani.push(sayiKiyasla())
             oyunUI()
         }
-        if (oyunSayisi === 10) {
-            players[secilenId[secilenId.length - 1]].puan = totalPuan(oyunPuani)
+        if (oyunSayisi === 25) {
+            if(players[secilenId[secilenId.length - 1]].puan<totalPuan(oyunPuani)){
+                players[secilenId[secilenId.length - 1]].puan = totalPuan(oyunPuani)
+            }
             stopMusik();
             alert(`Puaniniz:${totalPuan(oyunPuani)}`)
             updateUI()
             saniyeDurdur();
+            localStorage.clear()
+            saveList(players)
 
         }
     }
@@ -157,6 +161,8 @@ function saniyeBaslat() {
         stopMusik();
         alert(totalPuan(oyunPuani));
         updateUI();
+        localStorage.clear()
+        saveList(players)
     }
 }
 /**
@@ -171,14 +177,14 @@ function saveList(pList) {
     }
 }
 /**
- *Local Storage'den geri alma fonsiyonu ama bir türlü calistiramadim.
+ *Local Storage'den geri alma fonsiyonu
  */
 function retrieveList() {
     if (localStorage.length !== 0) {
         if (players.length === 0) {
             for (let index = 0; index < localStorage.length; index++) {
                 let element = JSON.parse(localStorage.getItem(localStorage.key(index)));
-                players.push(element)
+                players.push(element[index])
             }
         }
     }
